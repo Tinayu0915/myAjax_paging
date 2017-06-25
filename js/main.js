@@ -8,9 +8,10 @@
 			cache={};
 		},1000);
 		function changePage(){
-			for(let i=0,len=oPages.length;i<len;i++){ //let es6块级作用域变量声明方式
-				oPages[i].onclick=function(){ //用户点击li 弹出li的序号 0-5
-					var page=i+1;      //1-6 0-5
+			for(var i=0,len=oPages.length;i<len;i++){ 
+				(function(j){	
+				oPages[j].onclick=function(){ //用户点击li 弹出li的序号 0-5
+					var page=j+1;      //1-6 0-5
 					if( page in cache){
 						addDom(cache[page]);
 						console.log('数据已经有了');
@@ -20,6 +21,7 @@
 					}
 					console.log(cache);
 				}
+				}(i))
 			}
 		}
 		goTo(1);
