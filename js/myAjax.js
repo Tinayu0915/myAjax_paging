@@ -32,7 +32,7 @@ function myAjax(opt) {
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
                 if (opt.dataType === 'JSON') {
-                    //JSON.parse(xmlHttp.response)
+                    JSON.parse(xmlHttp.response);
                     opt.success(xmlHttp.response);
                 }
             }
